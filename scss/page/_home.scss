@@ -1,0 +1,64 @@
+@use '../abstract/' as *;
+@use '../base/' as *;
+@use '../layout/' as *;
+@use '../vendor/' as *;
+
+.banner{
+
+    img{
+        // @include imgCover(100%); //slider becoems half
+        @include imgCover(20rem, 100%); //slider becoems half
+        @include mediaQuery(){
+            height: 40rem;
+        }
+        }        
+    }
+
+    //dahil palaki
+.cards{
+    padding: 10rem 0;
+    &__wrapper{
+        @include grid(2);
+        grid-row-gap: 1rem;
+        @include mediaQuery{
+            @include grid(3);
+            grid-row-gap: 6rem;
+        }
+    }
+
+    //dosent work?
+    a{
+        justify-self: center;
+    }
+    
+    .card{
+        border-radius: 3rem;
+        overflow: hidden;
+        position: relative;
+        width: 120px;
+        height: 120px;
+        @include mediaQuery{ //fixes the @Media from mixins {mediaQuery}
+        width: 262px;
+        height: 262px;
+        }
+
+        img{
+            @include imgCover(100%); 
+            aspect-ratio: 1/1;
+            transition: ease-in-out .5s;
+        }
+        h4{
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            color: $clr-neutral;
+        }
+        // hover inspect
+        &:hover img{
+            transform: scale(1.2);
+        }
+    }
+    
+
+}

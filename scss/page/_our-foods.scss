@@ -1,0 +1,125 @@
+@use '../abstract/' as *;
+
+
+.banner {
+    background-image: url('../../images/food/food-banner-monile.jpg');
+    min-height: 40rem;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    @include flex(center,center); //flex neede min height or height
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    h1{
+        font-size: clamp(3rem, 10vw, 7rem); //fluid nalaki naliit
+        font-weight: bolder;
+    }
+}
+
+// .banner--food{
+//     background-image: ;
+// }
+.banner-food{
+    background-image: url('../../images/food/food-banner-monile.jpg');
+    @include mediaQuery{
+        background-image: url('../../images/food/food-banner.jpg');
+    }
+}
+
+.category{
+    padding: 5rem 0;
+    &__wrapper{
+        @include grid(2);
+        @include mediaQuery{
+            @include grid(3);
+            grid-row-gap: 6rem;
+        }
+        a{
+            justify-self: center;
+        }
+    }
+
+    &__card{
+        position: relative;
+        border-radius: 3rem;
+        overflow: hidden;
+
+        width: 120px;
+        height: 120px;
+        @include mediaQuery{  //card
+        width: 262px;
+        height: 262px;
+        }
+
+        &:hover img{
+            transform: scale(1.2)
+        }
+        img{
+            @include imgCover(100%, 100%);
+            transition: .5s ease;
+        }
+        h5{
+            // position: absolute;
+            // bottom: 0;
+            // left: 50%;
+            @include absolute (unset, unset, 0, 50%);
+
+            transform: translateX(-50%);
+            text-wrap: nowrap;
+            font-size: clamp(1.2rem, 3vw, 2rem);
+        }
+    }
+}
+
+.quality{
+    padding: 5rem 0;
+    &__header{
+        text-align: center;
+        h3{
+            font-size: clamp(2.5rem, 10vw, 6rem);
+        }
+        h5{
+            font-size: clamp(1.5rem, 10vw, 2rem);
+        }
+    }
+    &__wrapper{
+        background-image: url('../../images/food/pattern.svg');
+        background-repeat: repeat;
+        background-size: 12rem;
+    }
+    &__cards{
+        @include mediaQuery{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        }
+    }
+
+    &__card{
+        position: relative;
+        border-radius: 3rem;
+        overflow: hidden;
+        margin-bottom: 3rem;
+        @include mediaQuery{
+            flex-basis: 45%;
+        }
+       
+        h4{
+            // position: absolute;
+            // top: 5rem;
+            // right: 5rem;
+            @include absolute (5rem, 5rem, unset, unset);
+            font-size: 2rem; //error
+        }
+        p{
+            margin-bottom: 0;
+            @include mediaQuery{
+                font-size: 1.4rem;
+                min-height: 22rem;
+            }
+        }
+    }
+}

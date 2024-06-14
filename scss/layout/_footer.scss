@@ -1,0 +1,49 @@
+@use '../abstract/' as *;
+
+.footer{
+     //bgc
+    padding: 5rem 0;
+
+     &__wrapper{
+        @include mediaQuery{
+            display: flex;
+            justify-content: space-between;
+        }
+     }
+
+    &__actions{
+        margin-bottom: 4rem;
+        @include grid(2);
+        @include mediaQuery{
+            @include grid(4);
+        }
+        ul{
+            list-style: none;
+            li{
+                font-size: 1.2rem;
+            }
+            li img{
+                width: 80%;
+                margin-bottom: .5rem;
+            }
+        }
+        img{
+            justify-self: center;
+        }
+    }
+
+
+    &__connect{
+        ul{
+            list-style: none;
+           
+            gap: 3rem;
+            i{
+                font-size: 2.5rem;
+                color: $clr-accent;
+            }
+        }
+    }
+   
+}
+
